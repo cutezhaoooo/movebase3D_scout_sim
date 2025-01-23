@@ -13,8 +13,7 @@ MoveBase3D is a plane-fitting based uneven terrain navigation framework, which a
 
 整体功能框架图：
 
-![输入图片说明](https://foruda.gitee.com/images/1737623410902253997/cbb1d291_506465.png "Movebase3D_framwork.png")
-
+![framwork](./doc/Movebase3D_framwork.png)
 
 实际效果可以查看 [B站视频链接](https://www.bilibili.com/video/BV1n5qKYEE3Y/?vd_source=3d1b3e9650faa4e5ad34e91177c87105)
 
