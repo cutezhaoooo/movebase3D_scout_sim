@@ -20,8 +20,11 @@ MoveBase3D is a plane-fitting based uneven terrain navigation framework, which a
 ### 使用说明：
 
 硬件要求：11代NUC-i7或以上
+
 系统要求：Ubuntu20.04、Ubuntu18.04
+
 ROS要求：ROS1 （melodic或noetic）
+
 SLAM要求：FastLio2、A-LOAM等常见的3D激光雷达SLAM框架
 
 #### 第一步：
