@@ -67,7 +67,7 @@ pip install casadi
 mkdir -p catkin_ws/src
 cd catkin_ws/src/
 catkin_init_workspace
-git clone https://github.com/Wilson/MoveBase3D.git
+git clone https://github.com/WilsonGuo/MoveBase3D.git
 cd ..
 rosdep install --from-paths src --ignore-src --rosdistro=melodic -y
 或
@@ -226,7 +226,7 @@ goal_angular_gain: 2.0          # 到达目标点后，调整角度的角速度�
 5.观察车辆运动
 
 
-![effect](./doc/effect.jpg)
+![effect](./doc/effect2.png)
 
 
 ----
