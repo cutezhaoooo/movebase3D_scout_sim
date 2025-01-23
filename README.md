@@ -32,7 +32,9 @@ SLAM要求：FastLio2、A-LOAM等常见的3D激光雷达SLAM框架
 安装和部署SLAM框架，建议选用自己熟悉的框架
 
 #### 第二步：
+
 安装依赖库
+
 2.1 molodic版本：
 
 ```
@@ -57,6 +59,7 @@ sudo apt-get install ros-noetic-eigen*
 pip install casadi
 ```
 #### 第三步：
+
 克隆代码库和编译
 
 
@@ -75,6 +78,7 @@ catkin_make
 
 
 #### 第四步：
+
 设置权限
 
 ```
