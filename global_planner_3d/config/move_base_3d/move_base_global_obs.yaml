@@ -1,0 +1,15 @@
+map:
+  map_frame_id: map
+  lidar_frame_id: livox_frame
+  base_frame_id: base_footprint
+  resolution: 0.1   # 表示地图的分辨率（单位：米），这里设置为0.1米。每个栅格单元代表0.1米的区域。分辨率越高（值越小），地图越精细，但计算负担更大。
+  expansionCoefficient: 2.0
+  leaf_size: 0.2    # 降采样参数
+  local_x_l: -2.0
+  local_x_u: 2.0     
+  local_y_l: -1.5
+  local_y_u: 1.5
+  local_z_l: -0.5  
+  local_z_u: 0.2    
+
+
