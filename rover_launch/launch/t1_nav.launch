@@ -1,0 +1,13 @@
+<launch>
+
+
+  <include file="$(find rover_launch)/launch/include/slam_nav_config.launch">
+  </include>
+
+  <include file="$(find rover_launch)/launch/move_base_3d.launch">
+  </include>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rover_launch)/rviz_config/nav.rviz" required="true" />
+
+
+</launch>
