@@ -66,6 +66,7 @@ void rcvLidarCallBack(const sensor_msgs::PointCloud2 &lidar_points)
   passthrough.setFilterLimits(local_z_l, local_z_u);
   passthrough.filter(*cloud_after_PassThrough);
 
+  // 新建一个新的局部World 即:3D Map
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filt(new pcl::PointCloud<pcl::PointXYZ>);
 
   Vector3d lowerbound(local_x_l, local_y_l, local_z_l);
@@ -74,6 +75,7 @@ void rcvLidarCallBack(const sensor_msgs::PointCloud2 &lidar_points)
   World local_world = World(resolution);
   local_world.initGridMap(lowerbound, upperbound);
 
+  // 填充局部World 即:3D Map
   for (const auto &pt : (*cloud_after_PassThrough).points)
   {
     Vector3d obstacle(pt.x, pt.y, pt.z);
@@ -113,6 +115,7 @@ void rcvLidarCallBack(const sensor_msgs::PointCloud2 &lidar_points)
     _pt.y = trans_point.point.y;
     _pt.z = trans_point.point.z;
 
+    //********************************************************
     for (const auto &pt : worldCloud)
     {
       // 判断是否包含在一个体素内
@@ -212,9 +215,6 @@ void rcvLidarCallBack(const sensor_msgs::PointCloud2 &lidar_points)
       }
     }
 
-    //********************************************************
-
-    // cloud_tran->points.push_back(_pt);
   }
 
   sensor_msgs::PointCloud2 obs_vis;

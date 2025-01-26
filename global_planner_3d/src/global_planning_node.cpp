@@ -123,6 +123,7 @@ void rcvPointCloudCallBack(const sensor_msgs::PointCloud2 &pointcloud_map)
   {
     Vector3d obstacle(pt.x, pt.y, pt.z);
     world->setObs(obstacle);
+
   }
   visWorld(world, &grid_map_vis_pub);
 }
@@ -140,10 +141,12 @@ void projectToWorldCloud(const pcl::PointCloud<pcl::PointXYZ> &cloud,
   // 遍历 cloud 中的每个点
   for (const auto &_pt : cloud.points)
   {
+    // 将点投影到网格中心（世界地图坐标）
     double x_proj = std::round(_pt.x / resolution) * resolution;
     double y_proj = std::round(_pt.y / resolution) * resolution;
     double z_proj = std::round(_pt.z / resolution) * resolution;
 
+    // 检查投影点是否存在于 worldCloud
     for (const auto &world_pt : worldCloud.points)
     {
       if ((std::fabs(x_proj - world_pt.x) < resolution / 2 || std::fabs(x_proj - world_pt.x) == resolution / 2) &&
@@ -152,7 +155,8 @@ void projectToWorldCloud(const pcl::PointCloud<pcl::PointXYZ> &cloud,
       {
         pcl::PointXYZ projected_pt(x_proj, y_proj, world_pt.z);
         projected_cloud.push_back(projected_pt);
-        break; 
+        // ROS_INFO("( %f, %f, %f )", projected_pt.x, projected_pt.y, projected_pt.z);
+        break; // 一个点只投影到最近的体素一次
       }
     }
   }
@@ -168,6 +172,7 @@ void rcvObsCostCallBack(const sensor_msgs::PointCloud2 &obsCost)
   if (!world->has_map_)
     return;
 
+  // 将 cloud 投影到 worldCloud 的最近网格中心
   projectToWorldCloud(cloud, projected_cloud, worldCloud, resolution);
 
   sensor_msgs::PointCloud2 obs_project;
@@ -183,9 +188,10 @@ void rcvObsCostCallBack(const sensor_msgs::PointCloud2 &obsCost)
       world->setObs(obstacle); // 默认都为Grid
       for (const auto &_pt : projected_cloud.points)
       {
+        // 判断该点是否包含在膨胀后所在的体素集合内
         if (((_pt.x > pt.x - expansion && _pt.x < pt.x + expansion) || (_pt.x == pt.x - expansion) || (_pt.x == pt.x + expansion)) && ((_pt.y > pt.y - expansion && _pt.y < pt.y + expansion) || (_pt.y == pt.y - expansion) || (_pt.y == pt.y + expansion)))
         {
-          world->setObsReverse(obstacle); 
+          world->setObsReverse(obstacle); // 将膨胀后的体素集合全部反转，激发规划器避障
         }
       }
     }
@@ -243,11 +249,14 @@ void findSolution()
   Path solution = Path();
   pf_rrt_star->initWithGoal(start_pt, target_pt);
 
+  // 案例1：当原点无法投影到地面时，PF-RRT*无法工作
   if (pf_rrt_star->state() == Invalid)
   {
     ROS_WARN("The start point can't be projected.Unable to start PF-RRT* algorithm!!!");
   }
 
+  // 案例2: 如果原点和目标都可以投影，则 PF-RRT* 将执行
+  // 全局规划并尝试生成路径
   else if (pf_rrt_star->state() == Global)
   {
     ROS_INFO("Starting PF-RRT* algorithm at the state of global planning");
@@ -267,8 +276,11 @@ void findSolution()
       curGoalStatus.status = REJECTED;
     }
   }
+  // 案例3: 如果原点可以投影而目标不能投影，则PF-RRT*
+  // 将尝试找到一个临时的转换目标。
   else
   {
+    // ROS_INFO("Starting PF-RRT* algorithm at the state of rolling planning");
     int max_iter = 1500;
     double max_time = 100.0;
 
@@ -323,6 +335,7 @@ void callPlanner()
       int max_iter = 550;
       double max_time = 100.0;
       pf_rrt_star->planner(max_iter, max_time);
+      // ROS_INFO("Current size of tree: %d", (int)(pf_rrt_star->tree().size()));
     }
     else
       ROS_WARN("Attention: the start point can't be projected");
@@ -426,7 +439,7 @@ int main(int argc, char **argv)
     {
       double remain_distance = calculate2DDistance(start_pt, target_pt);
       ROS_INFO("remain_distance=%lf", remain_distance);
-      if (remain_distance < goal_thre||remain_distance == goal_thre)
+      if (remain_distance < goal_thre || remain_distance == goal_thre)
       {
         curGoalStatus.status = SUCCEEDED;
       }
