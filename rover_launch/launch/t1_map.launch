@@ -1,9 +1,0 @@
-<launch>
-
-	<include file="$(find rover_launch)/launch/include/slam_map_config.launch">
-	</include>
-
-	<node name="gps_rviz" pkg="rviz" type="rviz" args="-d /home/wilson/catkin_ws/src/rover_base_driver/rover_bringup/rviz/gps.rviz"/>
-
-
-</launch>
