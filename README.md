@@ -44,6 +44,7 @@ sudo apt-get install ros-melodic-joint-state-controller*
 sudo apt-get install ros-melodic-controller*
 sudo apt-get install ros-melodic-velocity-controllers*
 sudo apt-get install ros-melodic-eigen*
+sudo apt-get install ros-melodic-rviz-visual-tools
 pip install casadi
 ```
 
@@ -56,6 +57,7 @@ sudo apt-get install ros-noetic-joint-state-controller*
 sudo apt-get install ros-noetic-controller*
 sudo apt-get install ros-noetic-velocity-controllers*
 sudo apt-get install ros-noetic-eigen*
+sudo apt-get install ros-noetic-rviz-visual-tools
 pip install casadi
 ```
 #### 第三步：
@@ -69,9 +71,6 @@ cd catkin_ws/src/
 catkin_init_workspace
 git clone https://github.com/WilsonGuo/MoveBase3D.git
 cd ..
-rosdep install --from-paths src --ignore-src --rosdistro=melodic -y
-或
-rosdep install --from-paths src --ignore-src --rosdistro=noetic -y
 
 catkin_make
 ```
