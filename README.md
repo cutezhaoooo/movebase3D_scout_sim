@@ -223,7 +223,8 @@ goal_angular_gain: 2.0          # 到达目标点后，调整角度的角速度�
 （本框架附带了一个具备简单的多点导航功能rviz插件）
 
 5.观察车辆运动
-
+可以加载rviz配置项：/rover_launch/rviz_config/nav.rviz
+来选择可视化界面，这里可能有些topic需要根据你自己的slam框架修改
 
 ![effect](./doc/effect2.png)
 
