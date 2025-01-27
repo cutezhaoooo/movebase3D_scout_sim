@@ -27,6 +27,8 @@ ROS要求：ROS1 （melodic或noetic）
 
 SLAM要求：FastLio2、A-LOAM等常见的3D激光雷达SLAM框架
 
+**（建议：所选的SLAM框架先要在ROS自带的movebase中跑通，再切换到MoveBase3D框架，以避免兼容问题）**
+
 #### 第一步：
 
 安装和部署SLAM框架，建议选用自己熟悉的框架
