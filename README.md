@@ -93,6 +93,39 @@ sudo chmod a+x *
 
 ![movebase3d_node](./doc/MoveBase3D.png)
 
+关于全局规划对Z轴的处理
+
+	1. 地形的Z轴高度处理
+	Plane 类的构造函数定义了局部平面拟合 方法：
+
+	a.首先在指定的 radius 范围内，寻找足够多的点云点 plane_pts，然后进行 奇异值分解（SVD） 计算法向量 normal_vector。
+	关键是计算出三个关键指标：
+	    Flatness（平坦度）：用于评估该区域的平整程度（数值越小，地形越平坦）。
+	    Slope（坡度）：计算法向量与 Z 轴(0,0,1) 的夹角（数值越大，坡度越陡）。
+	    Sparsity（稀疏度）：用于衡量点云数据的密集程度，避免稀疏数据导致的误判。
+
+	b.整合三个指标计算可行性：   traversability 根据上述图中公式计算
+
+
+	2. 斜坡和高台阶的处理
+	斜坡和台阶的处理主要体现在 ：
+
+	fitPlane() ：
+	     计算当前位置的 局部平面法向量，用于判断是否可行（是否为悬崖、台阶等）。
+	     计算平面中心 p_surface，并利用 h_surf_（机器人距离表面的高度）调整路径节点 node->position_ 的 Z 轴值。
+
+
+	World::project2surface()：
+	     计算 (x, y) 在 Z 轴 上投影到可行走的地形表面，确保路径点不会悬空。
+
+
+	PF-RRT*：结合 collisionFree() 进行路径采样，确保机器人不会穿越 过于陡峭或不可通行的地形。
+	findNearNeighbors() 通过邻近点检测，确保新生成的路径点不会进入悬崖、台阶等区域。
+
+ 
+![movebase3d_1](./doc/movebase3d_1.png)
+
+
 使用车辆说明：
 
 ![movebase3d_rover_t1](./doc/rover.png)
