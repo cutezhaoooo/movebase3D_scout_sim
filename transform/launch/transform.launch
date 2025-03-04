@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <node name="pub_map" pkg="transform" type="pub_map" />
+    <node name="body_base_link" pkg="transform" type="body_base_link" />
+    <node name="map_camera_init" pkg="transform" type="map_camera_init" />
+
+    <!-- <node name="pub_pointCloud" pkg="transform" type="pub_pointCloud" /> -->
+
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <!-- 启动小车 -->
+    <include file="$(find scout_gazebo_sim)/launch/spawn_scout_v2.launch">
+    </include>
+
+    <!-- 启动fast lio -->
+    <include file="$(find fast_lio)/launch/mapping_mid360.launch">
+    </include>
+
+</launch>
