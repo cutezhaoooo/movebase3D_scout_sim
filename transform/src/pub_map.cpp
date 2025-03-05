@@ -11,6 +11,8 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
 
     // 创建一个发布者，发布到/map话题，消息类型为sensor_msgs::PointCloud2
+    // 被重映射了 要用重映射的名字
+    ros::Publisher remap_pub = nh.advertise<sensor_msgs::PointCloud2>("/rtabmap/cloud_map", 1);
     ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud2>("/map", 1);
 
     // 加载PCD文件
@@ -35,6 +37,7 @@ int main(int argc, char **argv)
     {
         // 发布点云数据
         pub.publish(output);
+        remap_pub.publish(output);
         ros::spinOnce();
         loop_rate.sleep();
     }

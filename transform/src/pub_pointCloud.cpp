@@ -14,7 +14,7 @@ sensor_msgs::PointCloud2 convertCustomMsgToPointCloud2(const livox_ros_driver::C
 
     // 设置Header
     pc2_msg.header = custom_msg.header;
-    pc2_msg.header.frame_id="map";
+    pc2_msg.header.frame_id="body";
 
     // 设置点云结构
     pc2_msg.height = 1;                      // 无序点云，height为1
@@ -107,11 +107,14 @@ int main(int argc, char** argv) {
     ros::NodeHandle nh;
 
     // 创建发布器
-    ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud2>("/pointCloud", 10);
+    // ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud2>("pointCloud", 10);
+    ros::Publisher pub = nh.advertise<sensor_msgs::PointCloud2>("output_filter", 10);
 
     // 创建订阅器，绑定回调函数
     ros::Subscriber sub = nh.subscribe<livox_ros_driver::CustomMsg>(
         "/livox/lidar", 10, boost::bind(customMsgCallback, _1, boost::ref(pub)));
+
+    
 
     // 进入ROS循环
     ros::spin();
