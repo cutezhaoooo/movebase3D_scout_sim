@@ -53,7 +53,9 @@
           <visualize>${visualize}</visualize>
 		  <samples>${samples}</samples>
 		  <downsample>${downsample}</downsample>
-		  <csv_file_name>/home/zjk/ranger_mid360_ur5_ws/src/livox_laser_simulation/scan_mode/mid360.csv</csv_file_name>
+      <!-- TAG:这里有全局变量 以解决-->
+		  <!-- <csv_file_name>/home/zjk/ranger_mid360_ur5_ws/src/livox_laser_simulation/scan_mode/mid360.csv</csv_file_name> -->
+		  <csv_file_name>$(find livox_laser_simulation)/scan_mode/mid360.csv</csv_file_name>
 		  <ros_topic>${ros_topic}</ros_topic>
         </plugin>
       </sensor>
@@ -68,15 +70,24 @@
         <origin xyz="0.00 0 0.0" rpy="0 0 0"/>
         <geometry>
           <!-- <mesh filename="/home/zjk/ranger_mid360_ur5_ws/src/livox_laser_simulation/meshes/mid360.dae"> -->
-          <mesh filename="/home/z/movebase3d_sim/src/livox_laser_simulation/meshes/mid360.dae">
+          <!-- TAG:这里的全局变量 已解决-->
+          <!-- <mesh filename="/home/z/movebase3d_sim/src/livox_laser_simulation/meshes/mid360.dae"> -->
+          <!-- </mesh> -->
+          <mesh filename="$(find livox_laser_simulation)/meshes/mid360.dae">
           </mesh>
         </geometry>
       </visual>
 
       <collision>
-		  <origin xyz="0 0 0" rpy="0 0 0" /> <geometry> <mesh 
-		  filename="/home/z/movebase3d_sim/src/livox_laser_simulation/meshes/mid360_rules.dae"> 
-		  </mesh> </geometry>
+        <!-- TAG:这里的全局变量  已解决-->
+		  <origin xyz="0 0 0" rpy="0 0 0" /> <geometry> 
+      <!-- <mesh  -->
+		  <!-- filename="/home/z/movebase3d_sim/src/livox_laser_simulation/meshes/mid360_rules.dae">  -->
+		  <!-- </mesh>  -->
+      <mesh 
+		  filename="$(find livox_laser_simulation)/meshes/mid360_rules.dae"> 
+		  </mesh> 
+      </geometry>
       </collision>
     </link>
     <link name="${name}">

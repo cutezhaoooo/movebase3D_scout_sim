@@ -48,7 +48,9 @@
       </joint>
 
       <!--lidar -->
-      <xacro:include filename="/home/zjk/ranger_mid360_ur5_ws/src/livox_laser_simulation/urdf/livox_mid360.xacro"/>
+      <!-- TAG:这里的全局变量 已经处理-->
+      <!-- <xacro:include filename="/home/zjk/ranger_mid360_ur5_ws/src/livox_laser_simulation/urdf/livox_mid360.xacro"/> -->
+      <xacro:include filename="$(find livox_laser_simulation)/urdf/livox_mid360.xacro"/>
       <!--xacro:Livox_Mid360 name="livox"/-->
 
     <!--imu -->

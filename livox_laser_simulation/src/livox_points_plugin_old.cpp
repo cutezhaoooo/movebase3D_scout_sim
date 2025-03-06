@@ -40,7 +40,8 @@ void convertDataToRotateInfo(const std::vector<std::vector<double>> &datas, std:
 void LivoxPointsPlugin::Load(gazebo::sensors::SensorPtr _parent, sdf::ElementPtr sdf) {
     std::vector<std::vector<double>> datas;
     //std::string file_name = sdf->Get<std::string>("csv_file_name");
-    std::string file_name = "/home/zjk/movebase3d/src/livox_laser_simulation/scan_mode/mid360.csv";
+    // BUG: 这里有全局变量
+    std::string file_name = "/home/z/movebase3d_scout_sim/src/livox_laser_simulation/scan_mode/mid360.csv";
     ROS_INFO_STREAM("load csv file name:" << file_name);
     if (!CsvReader::ReadCsvFile(file_name, datas)) {
         ROS_INFO_STREAM("cannot get csv file!" << file_name << "will return !");

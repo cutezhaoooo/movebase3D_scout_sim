@@ -3,6 +3,7 @@
 #include <pcl/point_types.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <pcl_conversions/pcl_conversions.h>
+#include <ros/package.h>
 
 int main(int argc, char **argv)
 {
@@ -17,10 +18,15 @@ int main(int argc, char **argv)
 
     // 加载PCD文件
     pcl::PointCloud<pcl::PointXYZ> cloud;
+    // TAG 这里有全局变量   已更改
     // if (pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/z/ws_livox/src/FAST_LIO/PCD/scans.pcd", cloud) == -1) //* load the file
-    if (pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/z/movebase3d_scout_sim/src/FAST_LIO/PCD/scans.pcd", cloud) == -1) //* load the file
+    // if (pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/z/movebase3d_scout_sim/src/FAST_LIO/PCD/scans.pcd", cloud) == -1) //* load the file
+    // ../FAST_LIO/PCD
+    std::string package_path = ros::package::getPath("fast_lio");
+    std::string pcd_file_path = package_path + "/PCD/scans.pcd";
+    if (pcl::io::loadPCDFile<pcl::PointXYZ>(pcd_file_path, cloud) == -1) //* load the file
     {
-        PCL_ERROR ("Couldn't read file your_pcd_file.pcd \n");
+        PCL_ERROR ("Couldn't read file scans.pcd \n");
         return (-1);
     }
     // ROS_INFO("Loaded %d data points from your_pcd_file.pcd", cloud.width * cloud.height);

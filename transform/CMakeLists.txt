@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf2_ros
 
   livox_ros_driver
+  roslib
 )
 
 ## System dependencies are found with CMake's conventions
