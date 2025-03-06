@@ -1,0 +1,2 @@
+# movebase3D_scout_sim
+用scout做的仿真，使用fast lio做定位框架movebase3D做导航框架
