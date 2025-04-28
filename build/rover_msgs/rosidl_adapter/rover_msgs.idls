@@ -1,0 +1,3 @@
+/home/liu/ROS2_MoveBase_3D/build/rover_msgs/rosidl_adapter/rover_msgs:msg/RoverBmsStatus.idl
+/home/liu/ROS2_MoveBase_3D/build/rover_msgs/rosidl_adapter/rover_msgs:msg/RoverGoalStatus.idl
+/home/liu/ROS2_MoveBase_3D/build/rover_msgs/rosidl_adapter/rover_msgs:msg/RoverRCStatus.idl

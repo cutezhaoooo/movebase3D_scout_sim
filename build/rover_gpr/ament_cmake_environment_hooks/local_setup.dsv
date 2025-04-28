@@ -1,0 +1,2 @@
+source;share/rover_gpr/environment/ament_prefix_path.sh
+source;share/rover_gpr/environment/path.sh

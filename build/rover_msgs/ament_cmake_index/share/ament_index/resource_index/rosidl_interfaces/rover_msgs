@@ -1,0 +1,6 @@
+msg/RoverBmsStatus.idl
+msg/RoverBmsStatus.msg
+msg/RoverGoalStatus.idl
+msg/RoverGoalStatus.msg
+msg/RoverRCStatus.idl
+msg/RoverRCStatus.msg

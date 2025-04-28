@@ -1,0 +1,42 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from rover_msgs/msg/RoverGoalStatus.msg
+// generated code does not contain a copyright notice
+
+
+module rover_msgs {
+  module msg {
+    module RoverGoalStatus_Constants {
+      const uint8 PENDING = 0;
+      const uint8 ACTIVE = 1;
+      const uint8 PREEMPTED = 2;
+      const uint8 SUCCEEDED = 3;
+      const uint8 ABORTED = 4;
+      const uint8 REJECTED = 5;
+      const uint8 PREEMPTING = 6;
+      const uint8 RECALLING = 7;
+      const uint8 RECALLED = 8;
+      const uint8 LOST = 9;
+    };
+    struct RoverGoalStatus {
+      double x;
+
+      double y;
+
+      double z;
+
+      double orientation_x;
+
+      double orientation_y;
+
+      double orientation_z;
+
+      double orientation_w;
+
+      uint8 status;
+
+      uint8 goal_id;
+
+      string text;
+    };
+  };
+};

@@ -1,0 +1,4 @@
+source;share/rviz_waypoint_generator_plungins/local_setup.bash
+source;share/rviz_waypoint_generator_plungins/local_setup.dsv
+source;share/rviz_waypoint_generator_plungins/local_setup.sh
+source;share/rviz_waypoint_generator_plungins/local_setup.zsh

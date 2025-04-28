@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-3b41adbb26e14a78f0bc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "rviz_waypoint_generator_plungins",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "rviz_waypoint_generator_plungins_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rviz_waypoint_generator_plungins_uninstall-2ae2b5d2086c4c5ed94e.json",
+					"name" : "rviz_waypoint_generator_plungins_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-b3adb434d23ee6efff4c.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "waypoint_generator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-waypoint_generator-64204230e4cda01fd691.json",
+					"name" : "waypoint_generator",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/liu/ROS2_MoveBase_3D/build/rviz_waypoint_generator_plungins",
+		"source" : "/home/liu/ROS2_MoveBase_3D/src/rviz_plungins/rviz_waypoint_generator_plungins"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

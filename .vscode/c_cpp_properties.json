@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/opt/ros/humble/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/**",
+                "/**",
+                "${workspaceFolder}/src/rover_gpr/include",
+                "${workspaceFolder}/src/global_planner_3d/include",
+                "/opt/ros/humble/include/tf2",
+                "${workspaceFolder}/src/rviz_plungins/rviz_waypoint_generator_plungins/include/rviz_waypoint_generator_plungins",
+                "${workspaceFolder}/src/rviz_plungins/rviz_multi_goals_manager_plugins/include"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}

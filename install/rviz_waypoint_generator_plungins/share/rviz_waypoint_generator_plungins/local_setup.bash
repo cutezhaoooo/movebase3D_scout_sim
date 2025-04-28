@@ -1,0 +1,1 @@
+/home/liu/ROS2_MoveBase_3D/build/rviz_waypoint_generator_plungins/ament_cmake_environment_hooks/local_setup.bash

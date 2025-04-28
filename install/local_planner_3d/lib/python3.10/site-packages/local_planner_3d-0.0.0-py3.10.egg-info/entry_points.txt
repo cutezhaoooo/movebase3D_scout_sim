@@ -1,0 +1,3 @@
+[console_scripts]
+local_planner_node = local_planner_3d.nodes.local_planner_node:main
+
