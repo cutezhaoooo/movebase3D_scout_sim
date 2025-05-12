@@ -1,1 +1,0 @@
-/home/liu/ROS2_MoveBase_3D/build/rover_pcl_filter/ament_cmake_environment_hooks/local_setup.zsh

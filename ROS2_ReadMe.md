@@ -19,10 +19,9 @@
   1. 话题除名称外与原版本并无区别，在rover_launch/move_base_3d_launch.py的remap重映射中可以快速修改
     - 全局点云：global_map
     - 局部点云：cloud_registered
-  2. 引入命名空间机制，现有大多数话题在red_standard_robot1下进行，取消了原有话题的“/”
-  3. 对tf坐标系同样引入red_standard_robot1，如果需要改动直接调整namespace即可
+  2. 引入命名空间机制，针对tf和话题名添加可用的namespace，在rover_launch/move_base_3d_launch.py中动态调整即可
 
 # 最后
     作为一名大一学生，我的代码能力还有许多不足，程序中的疏忽请大佬们见谅
-    本代码仅作抛砖引玉之用，有不合理之处敬请斧正，我也会继续维护
+    本代码现有性能不足以实战，仅作抛砖引玉之用，有不合理之处敬请斧正，我也会继续维护
     期待有一天能看到一版可用的代码

@@ -123,7 +123,7 @@ class Local_Planner(Node):
             PoseStamped, '/cur_goal', self.rcv_goal_callback, 10,
             callback_group=self.subscription_callback_group)
         # Publisher
-        self.pub = self.create_publisher(Twist, 'cmd_vel', 10)
+        self.pub = self.create_publisher(Twist, 'cmd_vel_nav2_result', 10)
         self.pub_status = self.create_publisher(RoverGoalStatus, '/cur_local_goal_status', 10)
         self.pub_local_path = self.create_publisher(Path, '/local_path', 10)
         self.ob_pub = self.create_publisher(MarkerArray, '/ob_draw', 10)

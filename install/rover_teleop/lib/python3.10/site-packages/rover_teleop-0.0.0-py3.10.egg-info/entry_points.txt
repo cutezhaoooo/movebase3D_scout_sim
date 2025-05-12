@@ -1,3 +1,0 @@
-[console_scripts]
-teleop_key = rover_teleop.nodes.teleop_key:main
-

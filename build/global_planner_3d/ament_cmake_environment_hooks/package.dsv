@@ -1,4 +1,0 @@
-source;share/global_planner_3d/local_setup.bash
-source;share/global_planner_3d/local_setup.dsv
-source;share/global_planner_3d/local_setup.sh
-source;share/global_planner_3d/local_setup.zsh

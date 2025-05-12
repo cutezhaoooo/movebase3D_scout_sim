@@ -54,6 +54,7 @@ def generate_launch_description():
     declare_namespace_cmd = DeclareLaunchArgument(
         "namespace",
         default_value="/red_standard_robot1",
+        # default_value="",
         description="Top-level namespace"
     )
 
@@ -93,7 +94,6 @@ def generate_launch_description():
             parameters=[
                 {'waypoint_type': 'manual-lonely-waypoint'},
                 {'use_sim_time': use_sim_time},
-                # {'tf_prefix': namespace}
             ],
             remappings=[
                 ('goal', '/goal'),
@@ -112,8 +112,6 @@ def generate_launch_description():
             parameters=[
                 {os.path.join(global_planner_share, 'config/move_base_3d/move_base_global.yaml')},
                 {'use_sim_time': use_sim_time},
-                # {'tf_prefix': namespace}
-                # configured_params_global
             ],
             remappings=[
                 ('waypoints', '/waypoint_generator/waypoints'),
@@ -132,9 +130,7 @@ def generate_launch_description():
             output='screen',
             parameters=[
                 {os.path.join(global_planner_share, 'config/move_base_3d/move_base_global_obs.yaml')},
-                {'use_sim_time': use_sim_time},
-                # {'tf_prefix': namespace}
-                # configured_params_obs
+                {'use_sim_time': use_sim_time}
             ],
             remappings=[
                 ('pointCloud', 'cloud_registered'),
@@ -167,8 +163,6 @@ def generate_launch_description():
             parameters=[
                 {os.path.join(global_planner_share, 'config/move_base_3d/move_base_local.yaml')},
                 {'use_sim_time': use_sim_time},
-                # {'tf_prefix': namespace}
-                # configured_params_local
             ],
             remappings=[
                 ('/tf', [namespace, '/tf']),
@@ -218,6 +212,5 @@ def generate_launch_description():
             name='rviz2',
             output='screen',
             parameters=[{'use_sim_time': True}],
-            # namespace=namespace
         )
     ])

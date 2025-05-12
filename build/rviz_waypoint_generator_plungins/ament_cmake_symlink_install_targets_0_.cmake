@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/liu/ROS2_MoveBase_3D/build/rviz_waypoint_generator_plungins/waypoint_generator" "TARGETS" "waypoint_generator" "DESTINATION" "lib/rviz_waypoint_generator_plungins")
