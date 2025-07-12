@@ -3,6 +3,6 @@
 	url = https://github.com/hku-mars/FAST_LIO.git
 
 [submodule "include/ikd-Tree"]
-	path = include/ikd-Tree
+	path = src/FAST_LIO/include/ikd-Tree
 	url = https://github.com/hku-mars/ikd-Tree.git
 	branch = fast_lio
