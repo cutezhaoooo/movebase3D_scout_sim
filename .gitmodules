@@ -1,3 +1,8 @@
 [submodule "FAST_LIO"]
 	path = FAST_LIO
 	url = https://github.com/hku-mars/FAST_LIO.git
+
+[submodule "include/ikd-Tree"]
+	path = include/ikd-Tree
+	url = https://github.com/hku-mars/ikd-Tree.git
+	branch = fast_lio
