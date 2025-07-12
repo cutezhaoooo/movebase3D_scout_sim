@@ -1,0 +1,9 @@
+<launch>
+
+  <!--目标点接收-->
+  <node pkg="waypoint_generator" name="waypoint_generator" type="waypoint_generator">
+    <remap from="~goal" to="/goal"/>
+    <param name="waypoint_type" value="manual-lonely-waypoint"/>
+  </node>
+
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+
+  <!--局部规划器-->
+  <node name="local_planner_3d" pkg="local_planner_3d" type="local_planner_node.py" output="screen" >
+     
+      <rosparam command="load" file="$(find global_planner_3d)/config/move_base_3d/move_base_local.yaml"/>
+  </node>
+</launch>
